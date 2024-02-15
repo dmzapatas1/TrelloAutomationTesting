@@ -26,7 +26,8 @@ exports.config = {
     ],
     // Patterns to exclude.
     exclude: [
-        // 'path/to/excluded/files'
+        './test/specs/test.spec.js',
+        './test/specs/login.spec.js'
     ],
     //
     // ============
@@ -50,23 +51,26 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-        browserName: 'chrome',
-        'goog:chromeOptions':{
-            args: ['headless', 'disable-gpu'],
-            excludeSwitches: ['enable-automation']
-        },
-        },   
+    capabilities: [
+        // {
+        // browserName: 'chrome',
+        // 'goog:chromeOptions':{
+        //     args: ['--start-maximized', '--incognito']
+        //    // args: ['headless', 'disable-gpu']
+        // },
+        // },   
         {browserName: 'firefox',
         'moz:firefoxOptions': {
-            args: ['-headless']
+           args: ['--start-maximized', '--private-window']
+            // args: ['-headless']
         },
         },
-        {browserName: 'msedge',
-        'ms:edgeOptions': {
-        args: ['--headless']
-        }
-        }],
+        // {browserName: 'msedge',
+        // 'ms:edgeOptions': {
+        //args: ['--headless']
+        // }
+        // }
+    ],
     
     //
     // ===================
@@ -115,7 +119,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // services: [],
+        services: ['chromedriver'],
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -127,13 +131,13 @@ exports.config = {
     
     //
     // The number of times to retry the entire specfile when it fails as a whole
-        specFileRetries: 1,
+    // specFileRetries: 1,
     //
     // Delay in seconds between the spec file retry attempts
-        specFileRetriesDelay: 0,
-    //
+    // specFileRetriesDelay: 0,
+    // //
     // Whether or not retried spec files should be retried immediately or deferred to the end of the queue
-        specFileRetriesDeferred: false,
+    // specFileRetriesDeferred: false,
     //
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
