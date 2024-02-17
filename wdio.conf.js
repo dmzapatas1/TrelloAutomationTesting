@@ -26,8 +26,9 @@ exports.config = {
     ],
     // Patterns to exclude.
     exclude: [
-        './test/specs/test.spec.js',
-        './test/specs/login.spec.js'
+        //'./test/specs/login.spec.js',
+        //'./test/specs/profile.spec.js',
+       // './test/specs/board.spec.js'
     ],
     //
     // ============
@@ -55,21 +56,19 @@ exports.config = {
         // {
         // browserName: 'chrome',
         // 'goog:chromeOptions':{
-        //     args: ['--start-maximized', '--incognito']
-        //    // args: ['headless', 'disable-gpu']
+        //     args: ['--start-maximized', '--incognito','--headless']
         // },
         // },   
         {browserName: 'firefox',
         'moz:firefoxOptions': {
-           args: ['--start-maximized', '--private-window']
-            // args: ['-headless']
+           args: ['--start-maximized', '--private-window','--headless']
         },
         },
-        // {browserName: 'msedge',
-        // 'ms:edgeOptions': {
-        //args: ['--headless']
-        // }
-        // }
+        {browserName: 'msedge',
+        'ms:edgeOptions': {
+         args: ['--start-maximized', '--inprivate', '--headless']
+        }
+        }
     ],
     
     //
@@ -131,13 +130,13 @@ exports.config = {
     
     //
     // The number of times to retry the entire specfile when it fails as a whole
-    // specFileRetries: 1,
+    specFileRetries: 1,
     //
     // Delay in seconds between the spec file retry attempts
-    // specFileRetriesDelay: 0,
+    specFileRetriesDelay: 0,
     // //
     // Whether or not retried spec files should be retried immediately or deferred to the end of the queue
-    // specFileRetriesDeferred: false,
+    specFileRetriesDeferred: false,
     //
     // Test reporter for stdout.
     // The only one supported by default is 'dot'

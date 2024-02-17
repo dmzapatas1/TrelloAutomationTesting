@@ -9,7 +9,7 @@ describe('Login', () => {
         await loginPage.login("daniela_zapata@epam.com", "")
        expect (loginPage.errorPassword).toHaveText('Enter your password')
     })
-    it('Success login', async () => {
+    it('Successfully login with valid credentials', async () => {
         await loginPage.login("danielazapata.test@gmail.com", "240216Te$t")
         browser.pause(10000)
         expect (loginPage.pageHeader).toExist()

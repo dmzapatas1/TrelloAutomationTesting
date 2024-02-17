@@ -26,14 +26,13 @@ class LoginPage {
         return page.trelloPage()
     }
     async login(username, password) {
-        //await this.emailInput.waitForDisplayed()
+        await this.emailInput.waitForDisplayed()
         await this.emailInput.setValue(username);
         await this.continueButton.click();
         await this.passwordInput.waitForDisplayed()
         await this.passwordInput.setValue(password);
         await this.loginButton.waitForDisplayed();
         await this.loginButton.click();
-        browser.pause(5000)
     }
 }
 
