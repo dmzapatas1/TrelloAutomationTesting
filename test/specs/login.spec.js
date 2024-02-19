@@ -1,4 +1,3 @@
-//import loginPage from "../pageObjects/login.page";
 const loginPage = require("../pageObjects/login.page") ;
 
 describe('Login', () => {
@@ -11,7 +10,6 @@ describe('Login', () => {
     })
     it('Successfully login with valid credentials', async () => {
         await loginPage.login("danielazapata.test@gmail.com", "240216Te$t")
-        browser.pause(10000)
         expect (loginPage.pageHeader).toExist()
     })
 })
