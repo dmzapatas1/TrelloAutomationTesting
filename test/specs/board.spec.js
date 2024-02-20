@@ -21,14 +21,20 @@ describe('Board suite', () => {
         });
         const lengthList = await board.listCardsToDo.length;
         const lastItemList = await board.listCardsToDo[lengthList - 1].getText();
-        expect(lastItemList).toEqual(cardTitle);    
+        expect(await lastItemList).toEqual(cardTitle);    
     })
+    it('Should delete first card of the first list', async () => { 
+        const titleFirstCard = await board.listCardsToDo[0].getText()
+        await board.deleteCard(0)
+        const isTitleFirstCard = board.listCardsToDo.some(title => title === titleFirstCard)
+        expect(await isTitleFirstCard).toEqual(false)
+     }) 
     it('Successfully creates a list', async () => {
        const randomTitle = await profile.creatRandomUsername('List test_')
        await board.createNewList(randomTitle)
        const lengthList = await  board.listTitles.length
        const lastItemList = await board.listTitles[lengthList - 1].getText()
-       expect(lastItemList).toEqual(randomTitle)
+       expect(await lastItemList).toEqual(randomTitle)
     })  
     it('Successfully shares board with another member', async () => { 
         await board.addMember('dmzapatas10@gmail.com');

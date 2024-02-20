@@ -58,6 +58,15 @@ class Board {
     get listCardsToDo(){
         return $("ol[data-testid='list-cards']").$$("a")
     }
+    get archiveButton(){
+        return $('a.button-link.js-archive-card')
+    }
+    get deleteCardButton(){
+        return $('a.button-link.js-delete-card.negate')
+    }
+    get confirmDeleteCard(){
+        return $('.js-confirm.full.nch-button.nch-button--danger')
+    }
     async openBoard(){
         await this.trelloBoard.waitForExist();
         await this.trelloBoard.click();
@@ -70,7 +79,16 @@ class Board {
         await this.addCardButton.waitForClickable();
         await this.addCardButton.click();      
     }
-
+    async deleteCard(position){
+        await this.listCardsToDo[position].click()
+        await this.archiveButton.waitForClickable({timeout:2000})
+        await this.archiveButton.click()
+        await this.deleteCardButton.waitForClickable({timeout:2000})
+        await this.deleteCardButton.click()
+        await this.confirmDeleteCard.waitForClickable({timeout:2000})
+        await this.confirmDeleteCard.click()
+        await browser.pause(3000)
+    }
     async createNewList(title){
         await this.createListButton.click()
         await this.inputListName.setValue(title);
