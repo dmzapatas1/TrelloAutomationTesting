@@ -105,7 +105,6 @@ class Board {
         await this.selectMember.click()
         await this.acceptShareButton.waitForClickable() 
         await this.acceptShareButton.click()   
-        await this.closeAddMember.click()
     }
 
     async errorShare(email){
@@ -114,7 +113,6 @@ class Board {
         await this.inputShare.waitForDisplayed()
         await this.inputShare.click()
         await this.inputShare.setValue(email)
-        await this.closeAddMember.click()
     }
 }
 

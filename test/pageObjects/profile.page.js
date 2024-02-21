@@ -28,7 +28,8 @@ class Profile {
     }
     async editUsername(username){
        await this.inputUsername.waitForDisplayed()
-       await this.inputUsername.setValue(username) 
+       await this.inputUsername.setValue(username)
+       await this.form.waitForClickable({timeout:2000}) 
        await this.form.click()
     }
     creatRandomUsername(username){

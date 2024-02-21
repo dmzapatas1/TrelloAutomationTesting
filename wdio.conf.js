@@ -5,6 +5,7 @@ exports.config = {
     // ====================
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
+   
     //
     // ==================
     // Specify Test Files
@@ -26,9 +27,9 @@ exports.config = {
     ],
     // Patterns to exclude.
     exclude: [
-        //  './test/specs/login.spec.js',
-        //  './test/specs/profile.spec.js',
-        // './test/specs/board.spec.js'
+        //   './test/specs/login.spec.js',
+        //   './test/specs/profile.spec.js',
+        //   './test/specs/board.spec.js'
     ],
     //
     // ============
@@ -61,16 +62,17 @@ exports.config = {
         // },   
         {browserName: 'firefox',
         'moz:firefoxOptions': {
-           args: ['--start-maximized', '--private-window', '--headless'
+           args: ['--start-maximized', '--private-window', 
+           '--headless'
         ]
         },
         },
-        {browserName: 'msedge',
-        'ms:edgeOptions': {
-         args: ['--start-maximized', '--inprivate', '--headless'
-        ]
-        }
-        }
+        // {browserName: 'msedge',
+        // 'ms:edgeOptions': {
+        //  args: ['--start-maximized', '--inprivate', '--headless'
+        // ]
+        // }
+        // }
     ],
     
     //
@@ -165,8 +167,10 @@ exports.config = {
      * @param {object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare: function (config, capabilities) {
-    // },
+    before: async function (config, capabilities) {
+        const chai = await import('chai');
+        global.expect = chai.expect;
+    },
     /**
      * Gets executed before a worker process is spawned and can be used to initialize specific service
      * for that worker as well as modify runtime environments in an async fashion.
