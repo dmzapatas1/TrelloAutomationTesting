@@ -92,7 +92,7 @@ class Board {
     async createNewList(title){
         await this.createListButton.click()
         await this.inputListName.setValue(title);
-        await this.addListButton.waitForClickable();
+        await this.addListButton.waitForClickable({timeout:2000});
         await this.addListButton.click();      
     }
 
@@ -114,6 +114,7 @@ class Board {
         await this.inputShare.waitForDisplayed()
         await this.inputShare.click()
         await this.inputShare.setValue(email)
+        await this.closeAddMember.click()
     }
 }
 

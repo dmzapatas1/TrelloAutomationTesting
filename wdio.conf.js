@@ -26,8 +26,8 @@ exports.config = {
     ],
     // Patterns to exclude.
     exclude: [
-        // './test/specs/login.spec.js',
-        // './test/specs/profile.spec.js',
+        //  './test/specs/login.spec.js',
+        //  './test/specs/profile.spec.js',
         // './test/specs/board.spec.js'
     ],
     //
@@ -61,14 +61,14 @@ exports.config = {
         // },   
         {browserName: 'firefox',
         'moz:firefoxOptions': {
-           args: ['--start-maximized', '--private-window',
-           '--headless'
+           args: ['--start-maximized', '--private-window', '--headless'
         ]
         },
         },
         {browserName: 'msedge',
         'ms:edgeOptions': {
-         args: ['--start-maximized', '--inprivate', '--headless']
+         args: ['--start-maximized', '--inprivate', '--headless'
+        ]
         }
         }
     ],
