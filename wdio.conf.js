@@ -67,12 +67,13 @@ exports.config = {
         ]
         },
         },
-        // {browserName: 'msedge',
-        // 'ms:edgeOptions': {
-        //  args: ['--start-maximized', '--inprivate', '--headless'
-        // ]
-        // }
-        // }
+        {browserName: 'msedge',
+        'ms:edgeOptions': {
+         args: ['--start-maximized', '--inprivate',
+          '--headless'
+        ]
+        }
+        }
     ],
     
     //
@@ -170,6 +171,8 @@ exports.config = {
     before: async function (config, capabilities) {
         const chai = await import('chai');
         global.expect = chai.expect;
+        global.should = chai.should;
+        global.assert = chai.assert;
     },
     /**
      * Gets executed before a worker process is spawned and can be used to initialize specific service

@@ -21,8 +21,10 @@ describe('Profile suite', () => {
         const currentUrl = await browser.getUrl();
         expect(currentUrl).to.include(newUsername);  
     })
-    it('Fails to edit profile with duplicate username', async () => { 
+    //fail in edge headless
+    it('Fails to edit profile with duplicate username', async ()=> { 
         await profile.editUsername('daniela')
+        await profile.error.waitForDisplayed({timeout:5000})
         const errorText = await profile.error.getText()
         expect(errorText).to.equal('Username is taken')   
     })

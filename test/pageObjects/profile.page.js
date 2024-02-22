@@ -11,10 +11,7 @@ class Profile {
     get inputUsername(){
         return $("input#username")
     }
-    get saveButton(){
-        return $("button[type='submit']")
-    }
-    get form(){
+    get saveButtonForm(){
         return $('form[data-testid="profile-form"] button[type="submit"]')
     }
     get error(){
@@ -29,8 +26,8 @@ class Profile {
     async editUsername(username){
        await this.inputUsername.waitForDisplayed()
        await this.inputUsername.setValue(username)
-       await this.form.waitForClickable({timeout:2000}) 
-       await this.form.click()
+       await this.saveButtonForm.waitForDisplayed({timeout:5000}) 
+       await this.saveButtonForm.click()
     }
     creatRandomUsername(username){
         const randomNumber = Math.floor(Math.random() * 900) + 100

@@ -24,7 +24,7 @@ describe("Board suite", () => {
             });
             const lengthList = await board.listCardsToDo.length;
             const lastItemList = await board.listCardsToDo[lengthList - 1].getText();
-            expect(lastItemList).to.equal(cardTitle);    
+            expect(lastItemList).to.equal(cardTitle); 
         })
         it('Should delete first card of the first list', async () => { 
             const titleFirstCard = await board.listCardsToDo[0].getText()
@@ -49,7 +49,8 @@ describe("Board suite", () => {
             await board.closeAddMember.click()
          })  
         it('Displays error when adding a new member', async () => {
-            await board.errorShare('test')
+            await board.errorShare('t') 
+            await board.errorShareBoard.waitForDisplayed()
             expect(await board.errorShareBoard.isExisting()).to.be.true
             await board.closeAddMember.click()
         })     
