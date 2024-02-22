@@ -87,7 +87,6 @@ class Board {
         await this.deleteCardButton.click()
         await this.confirmDeleteCard.waitForClickable({timeout:2000})
         await this.confirmDeleteCard.click()
-        await browser.pause(3000)
     }
     async createNewList(title){
         await this.createListButton.click()

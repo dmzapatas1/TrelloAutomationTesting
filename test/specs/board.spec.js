@@ -29,6 +29,13 @@ describe("Board suite", () => {
         it('Should delete first card of the first list', async () => { 
             const titleFirstCard = await board.listCardsToDo[0].getText()
             await board.deleteCard(0)
+            await browser.waitUntil(async () => {
+                const isTitleFirstCard = await board.listCardsToDo.some(title => title === titleFirstCard);
+                return !isTitleFirstCard;
+            }, {
+                timeout: 5000,
+                timeoutMsg: 'The card still existing'
+            });
             const isTitleFirstCard = await board.listCardsToDo.some(title => title === titleFirstCard)
             expect(isTitleFirstCard).to.equal(false)
          }) 
