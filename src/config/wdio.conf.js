@@ -22,14 +22,13 @@ exports.config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/**/*.js'
-       
+        './../tests/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
-        //   './test/specs/login.spec.js',
-        //   './test/specs/profile.spec.js',
-        //   './test/specs/board.spec.js'
+        //   './../tests/login.spec.js',
+        //   './../tests/profile.spec.js',
+        //   './../tests/board.spec.js'
     ],
     //
     // ============
@@ -67,13 +66,13 @@ exports.config = {
         ]
         },
         },
-        {browserName: 'msedge',
-        'ms:edgeOptions': {
-         args: ['--start-maximized', '--inprivate',
-          '--headless'
-        ]
-        }
-        }
+        // {browserName: 'msedge',
+        // 'ms:edgeOptions': {
+        //  args: ['--start-maximized', '--inprivate',
+        //   '--headless'
+        // ]
+        // }
+        // }
     ],
     
     //
@@ -171,8 +170,8 @@ exports.config = {
     before: async function (config, capabilities) {
         const chai = await import('chai');
         global.expect = chai.expect;
-        global.should = chai.should;
-        global.assert = chai.assert;
+        should = chai.should;
+        assert = chai.assert;
     },
     /**
      * Gets executed before a worker process is spawned and can be used to initialize specific service

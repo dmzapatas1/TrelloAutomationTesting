@@ -1,16 +1,16 @@
-const profile = require("../pageObjects/profile.page") ;
-const loginPage = require("../pageObjects/login.page") ;
+const profilePage = require("../pageObjects/pages/profile.page") ;
+const loginPage = require("../pageObjects/pages/login.page") ;
 
 describe('Profile suite', () => {
     before(async()=>{
         await loginPage.openTrello()
         await loginPage.login("danielazapata.test@gmail.com", "240216Te$t")
-        await profile.openUserProfile()     
+        await profilePage.openUserProfile()     
     })
     it('Successfully edits profile username', async () => { 
         const username = 'danielatest_';
-        const newUsername = profile.creatRandomUsername(username);
-        await profile.editUsername(newUsername);
+        const newUsername = profilePage.creatRandomUsername(username);
+        await profilePage.editUsername(newUsername);
         await browser.waitUntil(async () => {
             const currentUrl = await browser.getUrl();
             return currentUrl.includes(newUsername);
@@ -23,9 +23,9 @@ describe('Profile suite', () => {
     })
     //fail in edge headless
     it('Fails to edit profile with duplicate username', async ()=> { 
-        await profile.editUsername('daniela')
-        await profile.error.waitForDisplayed({timeout:5000})
-        const errorText = await profile.error.getText()
+        await profilePage.editUsername('daniela')
+        await profilePage.profileError().waitForDisplayed({timeout:5000})
+        const errorText = await profilePage.profileError().getText()
         expect(errorText).to.equal('Username is taken')   
     })
 })
