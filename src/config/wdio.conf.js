@@ -1,4 +1,7 @@
+let reportAggregator
+
 exports.config = {
+    
     //
     // ====================
     // Runner Configuration
@@ -145,8 +148,13 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
-
+    reporters:  [
+        ["spec",{
+            addConsoleLogs: false,
+            showPreface: false,
+        }],
+        ["html-nice",{}]
+    ],
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
@@ -167,6 +175,24 @@ exports.config = {
      * @param {object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
+    onPrepare: async function(config, capabilities) {
+        reportAggregator = await import('wdio-html-nice-reporter')
+        reportAggregator = new reportAggregator.ReportAggregator({
+            outputDir: './reports/',
+            filename: 'Trello-suites-report.html',
+            reportTitle: 'Trello Master Report',
+            browserName: process.env.TEST_BROWSER ? process.env.TEST_BROWSER :'unspecified',
+            showInBrowser: true
+        });
+        reportAggregator.clean();
+    },
+    
+    
+    onComplete: function (exitCode, config, capabilities, results) {
+        (async () => {
+            await reportAggregator.createReport();
+        })();
+    },
     before: async function (config, capabilities) {
         const chai = await import('chai');
         global.expect = chai.expect;
