@@ -2,19 +2,19 @@ const page = require('./page');
 const Components = require('../components/index');
 const Helpers = require('../helpers/index');
 class LoginPage {
-  openTrello () {
+  openTrello() {
     return page.trelloPage();
   }
 
-  pageHeader () {
+  pageHeader() {
     return Components.Header.pageHeader;
   }
 
-  errorPassword () {
+  errorPassword() {
     return Components.Atlassian.errorPassword;
   }
 
-  async login (username, password) {
+  async login(username, password) {
     await Components.Login.emailInput.waitForDisplayed();
     await Components.Login.emailInput.setValue(username);
     await Components.Login.continueButton.click();
@@ -24,12 +24,18 @@ class LoginPage {
     await Components.Atlassian.loginButton.click();
   }
 
-  async logout () {
-    await Components.Header.accountButton.waitForClickable(Helpers.Wait.DEFAULT_TIMEOUT);
+  async logout() {
+    await Components.Header.accountButton.waitForClickable(
+      Helpers.Wait.DEFAULT_TIMEOUT
+    );
     await Components.Header.accountButton.click();
-    await Components.AccountMenu.logoutMenuButton.waitForClickable(Helpers.Wait.DEFAULT_TIMEOUT);
+    await Components.AccountMenu.logoutMenuButton.waitForClickable(
+      Helpers.Wait.DEFAULT_TIMEOUT
+    );
     await Components.AccountMenu.logoutMenuButton.click();
-    await Components.LogoutConfirmation.logoutConfirmButton.waitForClickable(Helpers.Wait.DEFAULT_TIMEOUT);
+    await Components.LogoutConfirmation.logoutConfirmButton.waitForClickable(
+      Helpers.Wait.DEFAULT_TIMEOUT
+    );
     await Components.LogoutConfirmation.logoutConfirmButton.click();
   }
 }

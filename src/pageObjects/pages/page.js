@@ -1,5 +1,5 @@
 class Page {
-  async trelloPage () {
+  async trelloPage() {
     await browser.url('https://trello.com/login');
   }
 }

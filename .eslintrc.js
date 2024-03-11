@@ -1,7 +1,5 @@
 module.exports = {
-  extends: [
-    'semistandard'
-  ],
+  extends: ['semistandard', 'prettier'],
   globals: {
     browser: true,
     expect: true,
@@ -14,6 +12,5 @@ module.exports = {
     assert: true,
     $: true,
     $$: true
-
   }
 };

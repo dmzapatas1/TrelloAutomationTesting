@@ -1,5 +1,5 @@
 class Wait {
-  DEFAULT_TIMEOUT () {
+  DEFAULT_TIMEOUT() {
     return { timeout: 5000 };
   }
 }

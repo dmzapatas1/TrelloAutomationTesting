@@ -1,9 +1,9 @@
 class Login {
-  get emailInput () {
+  get emailInput() {
     return $('input#user.form-field');
   }
 
-  get continueButton () {
+  get continueButton() {
     return $('input#login.button');
   }
 }

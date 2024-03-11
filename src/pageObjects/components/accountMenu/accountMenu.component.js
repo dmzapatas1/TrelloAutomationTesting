@@ -1,13 +1,13 @@
 class AccountMenu {
-  get menuProfile () {
+  get menuProfile() {
     return $("div[data-testid='account-menu']");
   }
 
-  get menuProfileButton () {
+  get menuProfileButton() {
     return $("a[data-testid='account-menu-profile']");
   }
 
-  get logoutMenuButton () {
+  get logoutMenuButton() {
     return $('button[data-testid="account-menu-logout"]');
   }
 }

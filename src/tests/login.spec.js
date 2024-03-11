@@ -11,12 +11,22 @@ describe('Login', () => {
     expect(errorText).to.equal('Enter your password');
   });
   it('Successfully login with valid credentials', async () => {
-    await loginPage.login('danielazapata.test@gmail.com', '240216Te$t');
-    await browser.waitUntil(async () => {
-      await loginPage.pageHeader().waitForExist(Helpers.Wait.DEFAULT_TIMEOUT);
-      return await loginPage.pageHeader().isExisting();
-    }, { timeout: 5000, timeoutMsg: 'Page header did not exist' });
-    const headerIsExisting = await loginPage.pageHeader().isExisting();
+    await loginPage.login(
+      'danielazapata.test@gmail.com',
+      '240216Te$t'
+    );
+    await browser.waitUntil(
+      async () => {
+        await loginPage
+          .pageHeader()
+          .waitForExist(Helpers.Wait.DEFAULT_TIMEOUT);
+        return await loginPage.pageHeader().isExisting();
+      },
+      { timeout: 5000, timeoutMsg: 'Page header did not exist' }
+    );
+    const headerIsExisting = await loginPage
+      .pageHeader()
+      .isExisting();
     expect(headerIsExisting).to.equal(true);
   });
 });

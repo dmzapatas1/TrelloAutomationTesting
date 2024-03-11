@@ -1,5 +1,5 @@
 class BoardHeader {
-  get shareButton () {
+  get shareButton() {
     return $("button[data-testid='board-share-button']");
   }
 }

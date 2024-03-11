@@ -1,9 +1,9 @@
 class Header {
-  get accountButton () {
+  get accountButton() {
     return $('button[data-testid="header-member-menu-button"]');
   }
 
-  get pageHeader () {
+  get pageHeader() {
     return $('nav#header');
   }
 }

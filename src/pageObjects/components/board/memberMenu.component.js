@@ -1,25 +1,27 @@
 class MemberMenu {
-  get inputShare () {
-    return $("input.autocomplete-input[data-testid='add-members-input']");
+  get inputShare() {
+    return $(
+      "input.autocomplete-input[data-testid='add-members-input']"
+    );
   }
 
-  get acceptShareButton () {
+  get acceptShareButton() {
     return $("button[data-testid='team-invite-submit-button']");
   }
 
-  get selectMember () {
+  get selectMember() {
     return $('div.member-container');
   }
 
-  get memberList () {
+  get memberList() {
     return $$("div[data-testid='member-list-item-avatar']");
   }
 
-  get closeAddMember () {
+  get closeAddMember() {
     return $("button[data-testid='board-invite-modal-close-button']");
   }
 
-  get errorShareBoard () {
+  get errorShareBoard() {
     return $('div.is-empty-text');
   }
 }

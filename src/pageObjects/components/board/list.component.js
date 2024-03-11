@@ -1,17 +1,17 @@
 class List {
-  get createListButton () {
+  get createListButton() {
     return $("button[data-testid='list-composer-button']");
   }
 
-  get inputListName () {
+  get inputListName() {
     return $("textarea[name='Enter list title…']");
   }
 
-  get addListButton () {
+  get addListButton() {
     return $("button[data-testid='list-composer-add-list-button']");
   }
 
-  get listTitles () {
+  get listTitles() {
     return $("#board[data-testid='lists']").$$('h2');
   }
 }

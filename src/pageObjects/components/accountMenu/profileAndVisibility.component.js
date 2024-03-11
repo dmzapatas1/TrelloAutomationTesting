@@ -1,13 +1,15 @@
 class ProfileAndVisibility {
-  get inputUsername () {
+  get inputUsername() {
     return $('input#username');
   }
 
-  get saveButtonForm () {
-    return $('form[data-testid="profile-form"] button[type="submit"]');
+  get saveButtonForm() {
+    return $(
+      'form[data-testid="profile-form"] button[type="submit"]'
+    );
   }
 
-  get error () {
+  get error() {
     return $('#SaveProfileError_Field_username');
   }
 }

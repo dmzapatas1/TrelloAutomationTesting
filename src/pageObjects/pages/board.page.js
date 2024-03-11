@@ -1,32 +1,32 @@
 const Components = require('../components/index');
 const Helpers = require('../helpers/index');
 class Board {
-  listCardsToDo () {
+  listCardsToDo() {
     return Components.Card.listCardsToDo;
   }
 
-  listTitles () {
+  listTitles() {
     return Components.List.listTitles;
   }
 
-  memberList () {
+  memberList() {
     return Components.MemberMenu.memberList;
   }
 
-  closeAddMember () {
+  closeAddMember() {
     return Components.MemberMenu.closeAddMember;
   }
 
-  errorShareBoard () {
+  errorShareBoard() {
     return Components.MemberMenu.errorShareBoard;
   }
 
-  async openBoard () {
+  async openBoard() {
     await Components.Workspace.trelloBoard.waitForExist();
     await Components.Workspace.trelloBoard.click();
   }
 
-  async createNewCard (title) {
+  async createNewCard(title) {
     await Components.Card.createCardButton.click();
     await Components.Card.inputCardName.waitForClickable();
     await Components.Card.inputCardName.click();
@@ -35,25 +35,33 @@ class Board {
     await Components.Card.addCardButton.click();
   }
 
-  async deleteCard (position) {
+  async deleteCard(position) {
     await Components.Card.listCardsToDo[position].click();
-    await Components.Card.archiveButton.waitForClickable(Helpers.Wait.DEFAULT_TIMEOUT);
+    await Components.Card.archiveButton.waitForClickable(
+      Helpers.Wait.DEFAULT_TIMEOUT
+    );
     await Components.Card.archiveButton.click();
-    await Components.Card.deleteCardButton.waitForClickable(Helpers.Wait.DEFAULT_TIMEOUT);
+    await Components.Card.deleteCardButton.waitForClickable(
+      Helpers.Wait.DEFAULT_TIMEOUT
+    );
     await Components.Card.deleteCardButton.click();
-    await Components.Card.confirmDeleteCard.waitForClickable(Helpers.Wait.DEFAULT_TIMEOUT);
+    await Components.Card.confirmDeleteCard.waitForClickable(
+      Helpers.Wait.DEFAULT_TIMEOUT
+    );
     await Components.Card.confirmDeleteCard.click();
   }
 
-  async createNewList (title) {
+  async createNewList(title) {
     await Components.List.createListButton.waitForClickable();
     await Components.List.createListButton.click();
     await Components.List.inputListName.setValue(title);
-    await Components.List.addListButton.waitForClickable(Helpers.Wait.DEFAULT_TIMEOUT);
+    await Components.List.addListButton.waitForClickable(
+      Helpers.Wait.DEFAULT_TIMEOUT
+    );
     await Components.List.addListButton.click();
   }
 
-  async addMember (email) {
+  async addMember(email) {
     await Components.BoardHeader.shareButton.waitForClickable();
     await Components.BoardHeader.shareButton.click();
     await Components.MemberMenu.inputShare.waitForDisplayed();
@@ -64,7 +72,7 @@ class Board {
     await Components.MemberMenu.acceptShareButton.click();
   }
 
-  async errorShare (email) {
+  async errorShare(email) {
     await Components.BoardHeader.shareButton.waitForClickable();
     await Components.BoardHeader.shareButton.click();
     await Components.MemberMenu.inputShare.waitForDisplayed();

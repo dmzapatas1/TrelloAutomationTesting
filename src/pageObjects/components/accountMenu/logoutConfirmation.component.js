@@ -1,5 +1,5 @@
 class LogoutConfirmation {
-  get logoutConfirmButton () {
+  get logoutConfirmButton() {
     return $('button[data-testid="logout-button"]');
   }
 }

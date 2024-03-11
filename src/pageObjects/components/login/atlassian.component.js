@@ -1,13 +1,13 @@
 class Atlassian {
-  get passwordInput () {
+  get passwordInput() {
     return $('input#password');
   }
 
-  get loginButton () {
+  get loginButton() {
     return $('button#login-submit');
   }
 
-  get errorPassword () {
+  get errorPassword() {
     return $('span#password-error');
   }
 }
