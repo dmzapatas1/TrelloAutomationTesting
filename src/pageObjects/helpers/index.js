@@ -1,7 +1,7 @@
-const Utility = require('./utility')
-const Wait = require('./wait')
+const Utility = require('./utility');
+const Wait = require('./wait');
 
-module.exports={
-   Utility,
-   Wait 
-}
+module.exports = {
+  Utility,
+  Wait
+};
