@@ -5,7 +5,9 @@
   "main": "API_tests.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "api": "npx mocha ./API_tests.js"
+    "api": "npx mocha ./API_tests.js",
+    "lint": "eslint ./ --fix",
+    "prettier": " npx prettier . --write"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +15,15 @@
     "axios": "^1.6.7",
     "chai": "^5.1.0",
     "mocha": "^10.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-semistandard": "^17.0.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "prettier": "3.2.5"
   }
 }
