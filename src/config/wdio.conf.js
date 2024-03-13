@@ -23,12 +23,13 @@ exports.config = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
-  specs: ['./../tests/**/*.js'],
+  // specs: ['./../tests/**/*.js'],
+  specs: ['./../tests/**/*.feature'],
   // Patterns to exclude.
   exclude: [
-    // './../tests/login.spec.js',
-    // './../tests/profile.spec.js'
-    // './../tests/board.spec.js'
+    './../tests/login.spec.js',
+    './../tests/profile.spec.js',
+    './../tests/board.spec.js'
   ],
   //
   // ============
@@ -62,7 +63,9 @@ exports.config = {
     {
       browserName: 'firefox',
       'moz:firefoxOptions': {
-        args: ['--start-maximized', '--private-window', '--headless']
+        args: ['--start-maximized', '--private-window'
+        // , '--headless'
+      ]
       }
     }
     // {browserName: 'msedge',
@@ -129,7 +132,7 @@ exports.config = {
   //
   // Make sure you have the wdio adapter package for the specific framework installed
   // before running any tests.
-  framework: 'mocha',
+  framework: 'cucumber',
 
   //
   // The number of times to retry the entire specfile when it fails as a whole
@@ -160,7 +163,9 @@ exports.config = {
     ui: 'bdd',
     timeout: 60000
   },
-
+cucumberOpts:{
+  require:['src/tests/steps_definitions/*.js']
+},
   //
   // =====
   // Hooks
