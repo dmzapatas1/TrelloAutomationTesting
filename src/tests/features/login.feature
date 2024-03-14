@@ -1,17 +1,19 @@
-@skip
+@login
 Feature: Login to Trello
+Background:
+ Given Open the Trello login page
 
+  @negative
   Scenario: Login with invalid password
-    Given the Trello login page
     When enter a valid email "<username>" and an invalid pass "<password>"
-    Then an error message should be displayed
+    Then an error message should be displayed under the password field
 
     Examples:
       | username                | password |
       | daniela_zapata@epam.com |  |
 
+  @positive
   Scenario: Successfully login with valid credentials
-    Given the Trello login page
     When enter a valid email "<username>" and a valid pass "<password>"
     Then should be successfully logged in
 

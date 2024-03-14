@@ -1,6 +1,6 @@
 class Wait {
   DEFAULT_TIMEOUT() {
-    return { timeout: 5000 };
+    return { timeout: 10000 };
   }
 }
 

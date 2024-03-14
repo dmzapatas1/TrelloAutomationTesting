@@ -2,16 +2,22 @@ const { Given, When, Then } = require('@wdio/cucumber-framework');
 const loginPage = require('../../pageObjects/pages/login.page');
 const Helpers = require('../../pageObjects/helpers/index');
 
-Given('the Trello login page', async () => {
+Given('Open the Trello login page', async () => {
   await loginPage.openTrello();
 });
+Then('logout from trello', async () => {
+  await loginPage.logout();
+  });
 
 When('enter a valid email {string} and an invalid pass {string}', async (username, password) => {
   await loginPage.login(username, password);
 });
 
-Then('an error message should be displayed', async () => {
-  const errorText = await loginPage.errorPassword().getText();
+Then('an error message should be displayed under the password field', async () => {
+  await loginPage.errorPassword()
+  .waitForDisplayed(Helpers.Wait.DEFAULT_TIMEOUT) 
+  const errorTextElement = await loginPage.errorPassword()
+  const errorText = await errorTextElement.getText();
   expect(errorText).to.equal('Enter your password');
 })
 

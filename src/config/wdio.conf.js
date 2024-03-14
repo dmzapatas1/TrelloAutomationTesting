@@ -64,14 +64,14 @@ exports.config = {
       browserName: 'firefox',
       'moz:firefoxOptions': {
         args: ['--start-maximized', '--private-window'
-        // , '--headless'
+        , '--headless'
       ]
       }
     }
     // {browserName: 'msedge',
     // 'ms:edgeOptions': {
-    //  args: ['--start-maximized', '--inprivate',
-    //   '--headless'
+    //  args: ['--start-maximized', '--inprivate'
+    //  ,'--headless'
     // ]
     // }
     // }
@@ -164,7 +164,8 @@ exports.config = {
     timeout: 60000
   },
 cucumberOpts:{
-  require:['src/tests/steps_definitions/*.js']
+  require:['src/tests/steps_definitions/*.js'],
+  timeout:30000
 },
   //
   // =====

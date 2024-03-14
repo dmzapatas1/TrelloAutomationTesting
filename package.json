@@ -7,7 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "wdio": "wdio run src/config/wdio.conf.js",
     "lint": "eslint ./ --fix",
-    "prettier": " npx prettier . --write"
+    "prettier": " npx prettier . --write",
+    "profile" : "wdio run src/config/wdio.conf.js --cucumberOpts.tagExpression=@profile",
+    "board" : "wdio run src/config/wdio.conf.js --cucumberOpts.tagExpression=@board",
+    "login" : "wdio run src/config/wdio.conf.js --cucumberOpts.tagExpression=@login",
+    "positive" : "wdio run src/config/wdio.conf.js --cucumberOpts.tagExpression=@positive",
+    "negative" : "wdio run src/config/wdio.conf.js --cucumberOpts.tagExpression=@negative"
   },
   "keywords": [],
   "author": "",

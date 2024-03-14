@@ -1,20 +1,12 @@
-const { Given, When, Then, After } = require('@wdio/cucumber-framework');
-const loginPage = require('../../pageObjects/pages/login.page');
+const { When, Then } = require('@wdio/cucumber-framework');
 const profilePage = require('../../pageObjects/pages/profile.page');
 const Helpers = require('../../pageObjects/helpers/index');
 
 let newUsername
-After(async function () {
-    await loginPage.logout();
-});
-Given('the profile page', async () => {
-    await loginPage.openTrello();
-    await loginPage.login(
-      'danielazapata.test@gmail.com',
-      '240216Te$t'
-    );
+
+  Then('the profile page', async () => {
     await profilePage.openUserProfile();
-  });
+    });
 
 When('enter a unique profile username {string}', async (username) => {
     newUsername = profilePage.creatRandomUsername(username);
@@ -40,10 +32,10 @@ When('enter a duplicate profile username {string}', async (username) => {
     await profilePage.editUsername(username);
 });
 
-Then('an error message should be displayed', async () => {  
+Then('an error message should be displayed under the username field', async () => {  
     await profilePage
     .profileError()
-    .waitForDisplayed(Helpers.Wait) 
+    .waitForDisplayed(Helpers.Wait.DEFAULT_TIMEOUT) 
   const errorTextElement = await profilePage.profileError()
   const errorText = await errorTextElement.getText();
   expect(errorText).to.equal('Username is taken');
