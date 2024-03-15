@@ -1,6 +1,6 @@
 module.exports = {
   DROPBOX_ACCESS_TOKEN:
-    'sl.BxaI2YeNXn5rcPVeD3b4fuGIWD9WjDOJ7uz8DZ523mVf0RPSW30Z63YaQa0JqgDIq3yGjtNPzCq4yKLs0zIkaS9fMoQhuHt7VU3LIhSmGj3a4n1zsXu61UD-RO2prLRsakopYQ5XQm7RVFjLcAEe854',
+    'sl.BxepznFPckMz_uTgymMZ7jyUIk7zH9Y2syISvtonJu_A5P6DIe-crTj7_V5-fKzcCet5IbhM1A3YU2ciUsER8j3kELKnG5XqEU2EWvf6t18ZU8lnz1WRIfX1rj55hscdG2fABzdbVVkNSWjNlTqtUW8',
   DROPBOX_API_URL: 'https://api.dropboxapi.com/2',
   DROPBOX_CONTENT_URL: 'https://content.dropboxapi.com/2'
 };
