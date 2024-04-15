@@ -62,7 +62,9 @@ exports.config = {
     {
       browserName: 'firefox',
       'moz:firefoxOptions': {
-        args: ['--start-maximized', '--private-window', '--headless']
+        args: ['--start-maximized', '--private-window'
+        , '--headless'
+      ]
       }
     }
     // {browserName: 'msedge',

@@ -15,9 +15,17 @@ class LoginPage {
   }
 
   async login(username, password) {
-    await Components.Login.emailInput.waitForDisplayed();
-    await Components.Login.emailInput.setValue(username);
-    await Components.Login.continueButton.click();
+    const emailInput2 = await Components.Login.emailInput2
+    if(emailInput2){
+      await Components.Login.emailInput2.waitForDisplayed();
+      await Components.Login.emailInput2.setValue(username);
+      await Components.Login.continueButton2.click();
+    }else{
+      await Components.Login.emailInput.waitForDisplayed();
+      await Components.Login.emailInput.setValue(username);
+      await Components.Login.continueButton.click();
+    }
+   
     await Components.Atlassian.passwordInput.waitForDisplayed();
     await Components.Atlassian.passwordInput.setValue(password);
     await Components.Atlassian.loginButton.waitForDisplayed();

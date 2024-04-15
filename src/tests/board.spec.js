@@ -92,8 +92,8 @@ describe('Board suite', () => {
       await boardPage.closeAddMember().click();
     });
     it('Displays error when adding a new member', async () => {
-      await boardPage.errorShare('t');
-      await boardPage.errorShareBoard().waitForDisplayed();
+      await boardPage.errorShare('X   ');
+      await boardPage.errorShareBoard().waitForDisplayed(5000);
       const errorShareBoardExists = await boardPage
         .errorShareBoard()
         .isExisting();
